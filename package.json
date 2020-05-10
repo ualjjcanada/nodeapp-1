@@ -2,13 +2,14 @@
    "name": "node-app",
    "description": "hello jenkins test app",
    "version": "0.0.1",
-   "private": true,
+   "main": "index.js",
    "directories": {
       "test": "test"
    },
    "scripts": {
       "test": "mocha --exit",
-      "test-jenkins": "mocha --reporter mocha-junit-reporter --reporter-options mochaFile=./coverage/test.results.xml --exit"
+      "test-jenkins": "mocha --reporter mocha-junit-reporter --reporter-options mochaFile=./coverage/test.results.xml --exit",
+      "coverage-jenkins": "nyc --reporter=html --reporter=text  mocha  --reporter mocha-junit-reporter --reporter-options mochaFile=./coverage/test.results.xml --timeout=3000 --exit"
    },
    "dependencies": {
       "express": "^4.17.1"
@@ -16,6 +17,7 @@
    "devDependencies": {
       "mocha": "^7.1.1",
       "supertest": "^4.0.2",
-      "mocha-junit-reporter": "1.23.3"
+      "mocha-junit-reporter": "1.23.3",
+      "nyc": "^15.0.1"
    }
 }

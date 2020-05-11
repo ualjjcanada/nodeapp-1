@@ -10,7 +10,7 @@
       "test": "mocha --exit",
       "test-jenkins": "mocha --reporter mocha-junit-reporter --reporter-options mochaFile=./coverage/test.results.xml --exit",
       "coverage-jenkins": "nyc --reporter=html --reporter=text  mocha  --reporter mocha-junit-reporter --reporter-options mochaFile=./coverage/test.results.xml --timeout=3000 --exit",
-      "lint": "eslint *.js test/*.js -f checkstyle -o coverage/eslint-result.xml "
+      "lint": "eslint *.js test/*.js -f checkstyle -o coverage/checkstyle-result.xml "
    },
    "dependencies": {
       "express": "^4.17.1"

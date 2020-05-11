@@ -7,6 +7,7 @@
       "test": "test"
    },
    "scripts": {
+      "start": "PORT=8080 node index.js",
       "test": "mocha --exit",
       "test-jenkins": "mocha --reporter mocha-junit-reporter --reporter-options mochaFile=./coverage/test.results.xml --exit",
       "coverage-jenkins": "nyc --reporter=html --reporter=text  mocha  --reporter mocha-junit-reporter --reporter-options mochaFile=./coverage/test.results.xml --timeout=3000 --exit",

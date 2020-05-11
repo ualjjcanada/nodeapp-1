@@ -45,7 +45,7 @@ pipeline {
        }
        post {
          success {
-            recordIssues enabledForFailure: true, pattern: coverage/eslint-result.xml, tool: checkStyle() 
+            recordIssues enabledForFailure: true, tool: checkStyle(), filters: [includeFile('coverage/eslint-result.xml'), 
          }
       }
     }

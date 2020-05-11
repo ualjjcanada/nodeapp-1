@@ -27,8 +27,27 @@ pipeline {
       post { 
         success {
           junit '**/test*.xml'
+          publishHTML target: [
+            allowMissing         : false,
+            alwaysLinkToLastBuild: false,
+            keepAll             : true,
+            reportDir            : './coverage/',
+            reportFiles          : 'index.html',
+            reportName           : 'Coverage Report'
+          ]
         }
       }    
-  }
+    }
+
+    stage('Analysis'){
+       steps{
+          sh 'npm run lint -s'
+       }
+       post {
+         success {
+            recordIssues enabledForFailure: true, pattern:coverage/eslint-result.xml tool: checkStyle() 
+         }
+      }
+    }
   }
 }

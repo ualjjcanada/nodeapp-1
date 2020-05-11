@@ -9,15 +9,17 @@
    "scripts": {
       "test": "mocha --exit",
       "test-jenkins": "mocha --reporter mocha-junit-reporter --reporter-options mochaFile=./coverage/test.results.xml --exit",
-      "coverage-jenkins": "nyc --reporter=html --reporter=text  mocha  --reporter mocha-junit-reporter --reporter-options mochaFile=./coverage/test.results.xml --timeout=3000 --exit"
+      "coverage-jenkins": "nyc --reporter=html --reporter=text  mocha  --reporter mocha-junit-reporter --reporter-options mochaFile=./coverage/test.results.xml --timeout=3000 --exit",
+      "lint": "eslint *.js test/*.js -f checkstyle -o coverage/eslint-result.xml "
    },
    "dependencies": {
       "express": "^4.17.1"
    },
    "devDependencies": {
+      "eslint": "^7.0.0",
       "mocha": "^7.1.1",
-      "supertest": "^4.0.2",
       "mocha-junit-reporter": "1.23.3",
-      "nyc": "^15.0.1"
+      "nyc": "^15.0.1",
+      "supertest": "^4.0.2"
    }
 }

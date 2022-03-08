@@ -6,18 +6,9 @@
   "scripts": {
     "start": "node src/main",
     "test": "jest",
-    "coverage-jenkins": "jest --coverage --coverageDirectory=./coverage/",
+    "test-jenkins": "jest --reporters=default --reporters=jest-junit",
+    "coverage-jenkins": "jest --reporters=default --reporters=jest-junit --coverage --coverageReporters=text --coverageReporters=html --coverageDirectory=./coverage/",
     "lint": "eslint src/**/*.js -f checkstyle -o coverage/eslint-result.xml"
-  },
-  "jest": {
-    "coverageReporters": [
-      "html",
-      "text"
-    ],
-    "reporters": [
-      "default",
-      "jest-junit"
-    ]
   },
   "jest-junit": {
     "outputDirectory": "./coverage/",
